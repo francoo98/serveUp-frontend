@@ -12,6 +12,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <h1 className="text-center">Your servers</h1>
+      <ServerList></ServerList>
     </>
   );
 }
