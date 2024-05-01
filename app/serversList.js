@@ -1,13 +1,5 @@
 "use client"
 
-
-/*<div class="row mb-3 text-center">
-      <div class="col-md-3 themed-grid-col">.col-md-3</div>
-      <div class="col-md-6 themed-grid-col">.col-md-6</div>
-      <div class="col-md-3 themed-grid-col">.col-md-3</div>
-    </div>*/
-
-
 import React, { useEffect, useState } from 'react';
 
 export default function ServerList() {
