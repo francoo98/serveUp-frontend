@@ -1,10 +1,6 @@
 "use client"
 
-export default function GameCard({ image }) {
-
-    async function createGameServer() {
-        const server = await fetch("http://localhost:3001/api/server", {method: 'POST'})
-    }
+export default function GameCard({ image, createGameServer }) {
 
     return (
         <div className="col">
