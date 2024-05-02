@@ -1,6 +1,13 @@
+"use client"
+
 import Image from 'next/image'
 
 export default function GameCard({ image }) {
+
+    async function createGameServer() {
+        const server = await fetch("http://localhost:3001/api/server", {method: 'POST'})
+    }
+
     return (
         <div className="col">
             <div className="card shadow-sm">
@@ -10,7 +17,7 @@ export default function GameCard({ image }) {
                 </div>
                 <div className="card-body">
                     <div className="d-flex justify-content-center align-items-center">
-                        <button type="button" className="btn btn-primary btn-sm">Create game server</button>
+                        <button type="button" onClick={createGameServer} className="btn btn-primary btn-sm">Create game server</button>
                     </div>
                 </div>
             </div>
