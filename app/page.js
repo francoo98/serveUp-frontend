@@ -19,7 +19,9 @@ export default function Home() {
   async function createGameServer() {
     const server = await fetch("http://localhost:3001/api/server", { method: 'POST' })
     const json = await server.json()
-    setServers([...servers, json])
+    if(server && server.response.status === 201) {
+      setServers([...servers, json])
+    }
     console.log({newServer: json})
   }
 
