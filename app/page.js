@@ -10,14 +10,14 @@ export default function Home() {
 
   // Get servers from the backend
   useEffect(() => {
-    fetch('http://localhost:3001/api/server')
+    fetch('http://localhost:3001/api/server', { credentials: 'include' })
     .then(response => response.json())
     .then(data => setServers([...servers, ...data]))
     .catch(error => console.error('Error:', error))
   }, [])
 
   async function createGameServer() {
-    const server = await fetch("http://localhost:3001/api/server", { method: 'POST' })
+    const server = await fetch("http://localhost:3001/api/server", { method: 'POST', credentials: 'include' })
     const json = await server.json()
     if(server && server.response.status === 201) {
       setServers([...servers, json])
