@@ -1,6 +1,6 @@
 "use client"
 
-export default function ServerList({ servers, setServers }) {
+export default function ServerList({ servers }) {
     
     return (
         <div className='container'>
