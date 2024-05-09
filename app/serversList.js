@@ -1,7 +1,5 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
-
 export default function ServerList({ servers, setServers }) {
     
     return (
