@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </div>
       <h1 className="text-center">Your servers</h1>
-      <ServerList servers={servers} setServers={setServers}></ServerList>
+      <ServerList servers={servers}></ServerList>
     </>
   );
 }
