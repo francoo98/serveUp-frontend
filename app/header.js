@@ -10,5 +10,5 @@ export default function Header() {
                 <button className="btn btn-outline-primary" type="button"><Link href="/login">Login</Link></button>
             </div>
         </header>
-    );
+    )
 }

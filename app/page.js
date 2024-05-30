@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import GameCard from "./gameCard"
-import ServerList from "./serversList";
+import ServerList from "./serversList"
 
 export default function Home() {
 
@@ -38,5 +38,5 @@ export default function Home() {
       <h1 className="text-center">Your servers</h1>
       <ServerList servers={servers} setServers={setServers}></ServerList>
     </>
-  );
+  )
 }
