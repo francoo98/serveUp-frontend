@@ -1,12 +1,12 @@
 export const metadata = {
-    title: "ServeUp! Login",
-    description: "Login page",
-  }
+    title: "ServeUp! Logout",
+    description: "Logout page",
+}
 
 export default function RootLayout({ children }) {
     return (
         <div>
-          {children}
+            {children}
         </div>
     )
-  }
+}
