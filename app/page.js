@@ -20,8 +20,8 @@ export default function Home() {
     }
   }, [])
 
-  async function createGameServer() {
-    const server = await fetch("http://localhost:3001/api/server", { method: 'POST', credentials: 'include' })
+  async function createGameServer(game) {
+    const server = await fetch("http://localhost:3001/api/server/"+game, { method: 'POST', credentials: 'include' })
     const json = await server.json()
     if (server && server.status === 201) {
       setServers([...servers, json])
@@ -33,9 +33,13 @@ export default function Home() {
     <>
       <div className="album py-5 bg-body-tertiary">
         <div className="container">
-          {/*<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">*/}
-          <div className="row">
-            <GameCard image="minecraft1.jpg" createGameServer={createGameServer}></GameCard>
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div className="col">
+              <GameCard image="minecraft1.jpg" createGameServer={() => createGameServer('minecraft')}></GameCard>
+            </div>
+            <div className="col">
+              <GameCard image="xonotic.webp" createGameServer={() => createGameServer('xonotic')}></GameCard>
+            </div>
           </div>
         </div>
       </div>
