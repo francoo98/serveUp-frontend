@@ -3,15 +3,15 @@
 export default function ServerList({ servers, setServers }) {
 
     function deleteServer(id) {
-        fetch('http://localhost:3001/api/server/'+id, { method: 'DELETE', credentials: 'include' })
-        .then((res) => {
-            if(res.status === 204) {
-                setServers(servers.filter(server => server.id !== id))
-            }
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        fetch('http://localhost:3001/api/server/' + id, { method: 'DELETE', credentials: 'include' })
+            .then((res) => {
+                if (res.status === 204) {
+                    setServers(servers.filter(server => server.id !== id))
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
