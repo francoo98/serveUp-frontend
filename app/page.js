@@ -41,7 +41,7 @@ export default function Home() {
               <GameCard image="xonotic.webp" createGameServer={() => createGameServer('xonotic')}></GameCard>
             </div>
             <div className="col">
-              <GameCard image="terraria.jpg" createGameServer={() => createGameServer('terraria')}></GameCard>
+              <GameCard image="terraria.avif" createGameServer={() => createGameServer('terraria')}></GameCard>
             </div>
           </div>
         </div>
