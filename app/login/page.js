@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function Login() {
@@ -30,24 +30,24 @@ export default function Login() {
 
     return (
         <>
-        <div className="container">
+        <div className='container'>
             <form>
 
-                <div className="form-outline mb-4">
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="form-control" />
-                    <label className="form-label">
+                <div className='form-outline mb-4'>
+                    <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} className='form-control' />
+                    <label className='form-label'>
                         Username
                     </label>
                 </div>
 
-                <div className="form-outline mb-4">
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
-                    <label className="form-label">
+                <div className='form-outline mb-4'>
+                    <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} className='form-control' />
+                    <label className='form-label'>
                         Password
                     </label>
                 </div>
 
-                <button type="button" onClick={login} className="btn btn-primary btn-block mb-4">
+                <button type='button' onClick={login} className='btn btn-primary btn-block mb-4'>
                 Log in
                 </button>
             </form>
