@@ -1,18 +1,30 @@
 'use client'
 
-export default function ServerList({ servers, setServers }) {
+import { useEffect } from 'react'
+import Cookies from 'js-cookie'
+import globalState from './global-state'
+
+export default function ServerList() {
+
+    const getServers = globalState((state) => state.getServers)
+    const removeServer = globalState((state) => state.removeServer)
+    const servers = globalState((state) => state.servers)
 
     function deleteServer(id) {
         fetch('http://localhost:3001/api/server/' + id, { method: 'DELETE', credentials: 'include' })
             .then((res) => {
                 if (res.status === 204) {
-                    setServers(servers.filter(server => server.id !== id))
+                    removeServer(id)
                 }
             })
             .catch(error => {
                 console.log(error)
             })
     }
+
+    useEffect(() => {
+        if(Cookies.get('sessionToken')) getServers()
+    }, [])
 
     return (
         <div className='container'>

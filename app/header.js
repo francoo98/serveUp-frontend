@@ -2,8 +2,18 @@
 
 import Link from 'next/link'
 import Cookies from 'js-cookie'
+import { useEffect, useState } from 'react'
+import globalState from './global-state'
 
 export default function Header() {
+
+    const [page, setPage] = useState('login')
+    const username = globalState((state) => state.username)
+
+    useEffect(() => {
+        if (username) setPage('logout')
+        else setPage('login')
+    }, [username])
 
     return (
         <header className='py-3'>
@@ -12,12 +22,11 @@ export default function Header() {
                     <span className='fs-4'>ServeUp!</span>
                 </a>
                 {
-                    Cookies.get('sessionToken') ?
-                        <button className='btn btn-outline-primary' type='button'><Link href='/logout'>Logout</Link></button>
-                        :
-                        <button className='btn btn-outline-primary' type='button'><Link href='/login'>Login</Link></button>
+                    <button className='btn btn-outline-primary' type='button'>
+                        <Link href={'/' + page}>{page}</Link>
+                    </button>
                 }
             </div>
-        </header>
+        </header >
     )
 }

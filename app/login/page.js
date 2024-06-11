@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import globalState from '../global-state'
 
 export default function Login() {
 
@@ -10,22 +11,11 @@ export default function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    async function login() {
-        const response = await fetch('http://localhost:3001/api/user/login', {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
-            })
-        })
+    const login = globalState((state) => state.login)
 
-        if (response.ok) {
-            router.push('/')
-        }
+    async function handleLogin() {
+        const success = await login(username, password)
+        if (success) router.push('/')
     }
 
     return (
@@ -47,7 +37,7 @@ export default function Login() {
                     </label>
                 </div>
 
-                <button type='button' onClick={login} className='btn btn-primary btn-block mb-4'>
+                <button type='button' onClick={handleLogin} className='btn btn-primary btn-block mb-4'>
                 Log in
                 </button>
             </form>

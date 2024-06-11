@@ -2,32 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import GameCard from './gameCard'
-import ServerList from './serversList'
+import globalState from './global-state'
+import ServerList, { getServers } from './serversList'
 import Cookies from 'js-cookie'
 
 export default function Home() {
 
-  const [servers, setServers] = useState([])
   const sessionToken = Cookies.get('sessionToken')
-
-  // Get servers from the backend
-  useEffect(() => {
-    if (sessionToken) {
-      fetch('http://localhost:3001/api/server', { credentials: 'include' })
-        .then(response => response.json())
-        .then(data => setServers([...servers, ...data]))
-        .catch(error => console.error('Error:', error))
-    }
-  }, [])
-
-  async function createGameServer(game) {
-    const server = await fetch('http://localhost:3001/api/server/' + game, { method: 'POST', credentials: 'include' })
-    const json = await server.json()
-    if (server && server.status === 201) {
-      setServers([...servers, json])
-    }
-    console.log({ newServer: json })
-  }
+  const createGameServer = globalState((state) => state.createGameServer)
 
   return (
     <>
@@ -47,7 +29,9 @@ export default function Home() {
         </div>
       </div>
       <h1 className='text-center'>Your servers</h1>
-      <ServerList servers={servers} setServers={setServers}></ServerList>
+      {
+        <ServerList />
+      }
     </>
   )
 }
