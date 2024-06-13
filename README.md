@@ -1,3 +1,6 @@
+## ServeUp-frontend
+This is the frontend for [ServeUp-Backend](https://github.com/francoo98/serveUp-backend). ServeUp is a website to create game servers. It supports minecraft, terraria and xonotic
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
